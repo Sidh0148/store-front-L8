@@ -9,7 +9,7 @@ jobs:
   # Step 1: Build Job (Unit Test and Build Docker Image)
   # Build a packaged version of the application that can run in any Docker environment.
   Build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout Code
