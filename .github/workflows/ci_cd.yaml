@@ -9,7 +9,7 @@ jobs:
   # Step 1: Build Job (Unit Test and Build Docker Image)
   # Build a packaged version of the application that can run in any Docker environment.
   Build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout Code
@@ -45,7 +45,7 @@ jobs:
   # Step 2: Test Job (Integration Tests)
   # Run automated tests against the containerized application to ensure it behaves as expected.
   Test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     # Ensure the Test job only runs if Build pass
     needs: Build
@@ -61,7 +61,7 @@ jobs:
   # Step 3: Release Job (Release Docker Image)
   # Package the tested container images with version tags and push them to a container registry.
   Release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     # Ensure the Release job only runs if Test pass
     needs: Test
@@ -88,7 +88,7 @@ jobs:
   # Step 3: Deploy Job
   # Deploy the container image to a container orchestrator, such as K8s.
   Deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     # Ensure the Deploy job only runs if the Release is successful
     needs: Release
